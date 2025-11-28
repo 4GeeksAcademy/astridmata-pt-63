@@ -19,7 +19,8 @@ export const initialStore = () => {
       }
     ],
     saludo: "hola desde el store",
-    contacts: []
+    contacts: [],
+    character: []
   }
 }
 
@@ -55,6 +56,16 @@ export default function storeReducer(store, action = {}) {
       }
 
     //////////////////////////////////////////////
+
+    case "get_personajes":
+      
+     const{personajes}=action.payload
+    
+    return {
+
+        ...store, character:personajes
+      }
+
     default:
       throw Error('Unknown action.');
   }
